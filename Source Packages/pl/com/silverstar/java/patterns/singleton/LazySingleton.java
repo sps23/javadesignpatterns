@@ -6,13 +6,13 @@ package pl.com.silverstar.java.patterns.singleton;
  */
 public class LazySingleton {
 
-    private LazySingleton singleton;
+    private static LazySingleton singleton;
 
     private LazySingleton() {
         System.out.println("Private constructor of LazySingleton().");
     }
 
-    public LazySingleton getInstance() {
+    public static LazySingleton getInstance() {
         synchronized (LazySingleton.class) {
             if (singleton == null) {
                 System.out.println("LazySingleton: getInstance() invoked for the first time.");
@@ -22,4 +22,7 @@ public class LazySingleton {
         return singleton;
     }
 
+    public void doSth() {
+        System.out.println("LazySingleton: doSth()");
+    }
 }
